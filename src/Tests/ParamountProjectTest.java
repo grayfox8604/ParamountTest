@@ -43,7 +43,7 @@ public class ParamountProjectTest {
         System.out.println("The names are a match " + projectNameCompare + " = " + projectName);
 
         //Log out
-        System.out.println("Time to get log out!");
+        System.out.println("Time to log out!");
         paramountProjectPageLogout(driver);
     }
     private static void paramountProjectPageAdditionTest() throws InterruptedException{
