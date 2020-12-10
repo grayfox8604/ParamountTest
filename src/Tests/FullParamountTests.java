@@ -10,7 +10,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
 
-
+/*This version of the tests are fully contained within this file, but are similar to the independent classes.
+*One of the enhancements of this style is that we get better reporting when the tests are run and should one test fail,
+* it does not mean that all of the project will stop.*/
 
 public class FullParamountTests {
     WebDriver driver = null;
