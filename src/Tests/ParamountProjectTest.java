@@ -1,13 +1,14 @@
 package Tests;
 
-import Pages.LoginPage;
 import Pages.ProjectPage;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
+import static Tests.LoginTest.paramountLoginTest;
+import static Tests.LogoutTest.paramountProjectPageLogout;
 
-public class ParamountTest {
+public class ParamountProjectTest {
     private static WebDriver driver = null;
     public static String projectName = "BS Test " + Math.floor(Math.random() * Math.floor(99));
 
@@ -18,17 +19,6 @@ public class ParamountTest {
         driver.get("http://paramount-demo.frogslayerdev.com");
         paramountProjectPageAdditionTest();
         paramountProjectPageSearchTest();
-    }
-
-    public static WebDriver paramountLoginTest(WebDriver driver) {
-        LoginPage login = new LoginPage(driver);
-        login.userNameBox(driver).sendKeys("larry.test@frogslayer.com");
-        login.passwordBox(driver).sendKeys("P@ssword1");
-        login.loginButton(driver).click();
-
-        System.out.println("I have logged in!");
-        return driver;
-
     }
 
     private static void paramountProjectPageSearchTest() throws InterruptedException{
@@ -49,8 +39,7 @@ public class ParamountTest {
         System.out.println("The names are a match " + projectNameCompare + " = " + projectName);
 
         System.out.println("Time to get log out!");
-        paramountProjectPageLogout();
-
+        paramountProjectPageLogout(driver);
     }
     private static void paramountProjectPageAdditionTest() throws InterruptedException{
         ProjectPage addition = new ProjectPage(driver);
@@ -62,12 +51,6 @@ public class ParamountTest {
         addition.addProjectTC(driver).sendKeys("2000");
         addition.submitProjectButton(driver).click();
         System.out.println("I have added a new project called " + projectName);
-
-
     }
-    private static void paramountProjectPageLogout() throws InterruptedException {
-        ProjectPage logout = new ProjectPage(driver);
-        logout.logOut(driver).click();
-        driver.close();
-    }
+
 }
