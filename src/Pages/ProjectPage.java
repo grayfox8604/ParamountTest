@@ -67,4 +67,9 @@ public class ProjectPage {
         element = driver.findElement(logoBannerButton);
         return element;
     }
+
+    public static WebElement projectNameText (WebDriver driver){
+        element = driver.findElement((projectNameBanner));
+        return element;
+    }
 }
